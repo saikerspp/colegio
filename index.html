@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colegio Monserrate Alava de Gonzales</title>
+  
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #e0f2ff, #ffffff);
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    /* Header fijo */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    /* Cambia color header al hacer scroll */
+    body.scrolled header {
+      background: #002244;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0;
+      height: 3px;
+      background: #00aaff;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #00aaff;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 110px auto 50px;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.7s forwards;
+    }
+
+    /* Animación fadeIn para secciones con delay */
+    section:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    section:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    section:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    section:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+    section:nth-child(5) {
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section:hover {
+      box-shadow: 0 15px 35px rgba(0, 170, 255, 0.25);
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    h2 {
+      color: #003366;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    ul {
+      list-style: disc inside;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1.2rem 2rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1.2rem;
+      border: 1.8px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #00aaff;
+      box-shadow: 0 0 6px rgba(0,170,255,0.4);
+    }
+
+    form button {
+      background: #00aaff;
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,170,255,0.4);
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #0077cc;
+      box-shadow: 0 6px 18px rgba(0,119,204,0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      
+      main {
+        margin: 130px 1rem 50px;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Colegio Monserrate Alava de Gonzales</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#oferta">Oferta Académica</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>Bienvenidos</h2>
+      <p>Somos el Colegio Monserrate Alava de Gonzales, comprometidos con la educación integral y de calidad para todos nuestros estudiantes.</p>
+    </section>
+
+    <section id="nosotros">
+      <h2>Sobre Nosotros</h2>
+      <p>Fundado en 1990, nuestro colegio ha formado a miles de jóvenes con valores, conocimiento y habilidades para la vida.</p>
+    </section>
+
+    <section id="oferta">
+      <h2>Oferta Académica</h2>
+      <ul>
+        <li>Educación Inicial</li>
+        <li>Educación Básica</li>
+        <li>Bachillerato General Unificado</li>
+      </ul>
+    </section>
+
+    <section id="noticias">
+      <h2>Noticias y Eventos</h2>
+      <p>Próximamente tendremos nuestra feria científica anual, talleres extracurriculares y más actividades para la comunidad.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form onsubmit="alert('Gracias por contactarnos, responderemos pronto.'); return false;">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+<section id="comentarios">
+  <h2>Comentarios</h2>
+  <form id="formComentario">
+    <label for="nombreComentario">Tu nombre:</label>
+    <input type="text" id="nombreComentario" required />
+
+    <label for="textoComentario">Tu comentario:</label>
+    <textarea id="textoComentario" rows="4" required></textarea>
+
+    <button type="submit">Publicar</button>
+  </form>
+
+  <div id="listaComentarios" style="margin-top: 2rem;"></div>
+</section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Colegio Monserrate Alava de Gonzales - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Cambiar clase body cuando se hace scroll para cambiar color header
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 10){
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    });
+  </script>
+<script>
+  const form = document.getElementById("formComentario");
+  const lista = document.getElementById("listaComentarios");
+
+  // Cargar comentarios desde localStorage al iniciar
+  const comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+
+  function mostrarComentarios() {
+    lista.innerHTML = "";
+    comentarios.forEach(({ nombre, texto }) => {
+      const div = document.createElement("div");
+      div.style.borderBottom = "1px solid #ccc";
+      div.style.marginBottom = "1rem";
+      div.style.paddingBottom = "1rem";
+      div.innerHTML = `<strong>${nombre}</strong><p>${texto}</p>`;
+      lista.appendChild(div);
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById("nombreComentario").value.trim();
+    const texto = document.getElementById("textoComentario").value.trim();
+    if (nombre && texto) {
+      comentarios.push({ nombre, texto });
+      localStorage.setItem("comentarios", JSON.stringify(comentarios));
+      form.reset();
+      mostrarComentarios();
+    }
+  });
+
+  mostrarComentarios();
+</script>
+</body>
+</html>
